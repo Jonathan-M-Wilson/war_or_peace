@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
+require "pry"
 
 class CardTest < Minitest::Test
   def setup
@@ -15,7 +16,7 @@ class CardTest < Minitest::Test
 
   def test_it_has_readable_attributes
     card = Card.new(:diamond, 'Queen', 12)
-    
+    #require "pry": binding.pry
     assert_equal :diamond, card.suit
     assert_equal 'Queen', card.value
     assert_equal 12, card.rank
