@@ -4,10 +4,6 @@ require './lib/card'
 require "pry"
 
 class CardTest < Minitest::Test
-  def setup
-    card = Card.new(:diamond, 'Queen', 12)
-  end
-
   def test_it_exists
     card = Card.new(:diamond, 'Queen', 12)
 
@@ -16,7 +12,7 @@ class CardTest < Minitest::Test
 
   def test_it_has_readable_attributes
     card = Card.new(:diamond, 'Queen', 12)
-    #require "pry": binding.pry
+
     assert_equal :diamond, card.suit
     assert_equal 'Queen', card.value
     assert_equal 12, card.rank
