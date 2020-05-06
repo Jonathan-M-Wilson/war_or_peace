@@ -12,7 +12,7 @@ class PlayerTest < Minitest::Test
     @card2 = Card.new(:spade, '3', 3)
     @card3 = Card.new(:heart, 'Ace', 14)
     @card4 = Card.new(:club, '5', 5)
-    cards = [@card1, @card2, @card3]
+    cards = ([@card1, @card2, @card3])
     @deck = Deck.new(cards)
     @player = Player.new('Clarisa', @deck)
   end
