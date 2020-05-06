@@ -19,7 +19,6 @@ class DeckTest < Minitest::Test
     assert_instance_of Deck, @deck
   end
 
-
   def test_it_has_cards
     cards = [@card1, @card2, @card3]
     assert_equal cards, @deck.cards
