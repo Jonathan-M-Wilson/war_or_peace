@@ -19,19 +19,19 @@ class TurnBasicTest < Minitest::Test
     card8 = Card.new(:diamond, '2', 2)
     card9 = Card.new(:diamond, "9", 9)
 
-    deck1 = Deck.new([card1, card2, card5, card8])
-    deck2 = Deck.new([card3, card4, card6, card7])
+    deck1 = Deck.new([@card1, @card2, @card5, @card8])
+    deck2 = Deck.new([@card3, @card4, @card6, @card7])
 
-    player1 = Player.new("Megan", deck1)
-    player2 = Player.new("Aurora", deck2)
+    player1 = Player.new("Megan", @deck1)
+    player2 = Player.new("Aurora", @deck2)
 
-    turn = Turn.new(player1, player2)
+    turn = Turn.new(@player1, @player2)
 
-    war_deck1 = Deck.new([card1, card2, card3, card5])
-    war_deck2 = Deck.new([card4, card6, card7, card8])
+    war_deck1 = Deck.new([@card1, @card2, @card3, @card5])
+    war_deck2 = Deck.new([@card4, @card6, @card7, @card8])
 
-    mad_deck1 = Deck.new([card1, card2, card5, card3])
-    mad_deck2 = Deck.new([card4, card6, card8, card9])
+    mad_deck1 = Deck.new([@card1, @card2, @card5, @card3])
+    mad_deck2 = Deck.new([@card4, @card6, @card8, @card9])
 
   end
 
@@ -41,23 +41,23 @@ class TurnBasicTest < Minitest::Test
   end
 
   def test_players_make_turns
-    assert_equal player1, turn.player1
-    assert_equal player2, turn.player2
+    assert_equal @player1, @turn.player1
+    assert_equal @player2, @turn.player2
   end
 
   def test_spoils_of_war_holds_cards
-    assert_equal [], turn.spoils_of_war
+    assert_equal [], @turn.spoils_of_war
   end
 
   def test_it_has_type_of_basic
-    player1
-    player2
-    turn
+    @player1
+    @player2
+    @turn
 
-    refute player1.deck.rank_of_card_at(0) ==
-    player2.deck.rank_of_card_at(0)
+    refute @player1.deck.rank_of_card_at(0) ==
+    @player2.deck.rank_of_card_at(0)
 
-    assert_equal :basic, turn.type
+    assert_equal :basic, @turn.type
   end
 
   def test_it_has_type_of_war
@@ -103,17 +103,17 @@ class TurnBasicTest < Minitest::Test
   end
 
   def test_it_has_winner
-    assert_equal player1, turn.winner
+    assert_equal @player1, @turn.winner
   end
 
   def test_it_can_pile_cards
-    assert_equal turn.spoils_of_war, turn.pile_cards
+    assert_equal @turn.spoils_of_war, @turn.pile_cards
   end
 
   def test_it_awards_spoils_to_turn_winner
-    winner = turn.winner
-    turn.pile_cards
-    turn.award_spoils(winner)
+    winner = @turn.winner
+    @turn.pile_cards
+    @turn.award_spoils(winner)
     assert_equal 5, winner.deck.cards.count
   end
 end
