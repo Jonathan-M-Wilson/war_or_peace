@@ -6,9 +6,9 @@ class Turn
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
-    @pile_cards = []
     @spoils_of_war = []
     @type = type
+    @winner = winner
   end
 
   def type
@@ -36,22 +36,25 @@ class Turn
     end
   end
 
-  def spoils_of_war
-    @pile_cards
+  def award_spoils(winner)
+    @spoils_of_war.each do |card|
+      @winner.deck.cards << card
+    end
   end
 
   def pile_cards
     if type == :basic
-      @spoils_of_war << @player1.deck.shift
-      @spoils_of_war << @player2.deck.shift
+      @spoils_of_war << @player1.deck.cards.shift
+      @spoils_of_war << @player2.deck.cards.shift
     elsif type == :war
       3.times do
-        @spoils_of_war << @player1.deck.shift 
-        @spoils_of_war << @player2.deck.shift
+        @spoils_of_war << @player1.deck.cards.shift
+        @spoils_of_war << @player2.deck.cards.shift
       end
     elsif type == :mutually_assured_destruction
       3.times do
-        @player1.deck.shift && @player2.deck.shift
+        @player1.deck.cards.shift
+        @player2.deck.cards.shift
       end
     end
   end
