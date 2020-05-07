@@ -19,24 +19,9 @@ class Turn
       :mutually_assured_destruction
     end
   end
-
-
-
-
+  
   def spoils_of_war
     @pile_cards
   end
-=begin
-  def calc_basic
-    @player1.deck.rank_of_card_at(0) != @player2.deck.rank_of_card_at(0)
-  end
 
-  def calc_war
-    @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0)
-  end
-
-  def calc_mutually_assured_destruction
-    @player1.deck.rank_of_card_at(0..2) != @player2.deck.rank_of_card_at(0..2)
-  end
-=end
 end
