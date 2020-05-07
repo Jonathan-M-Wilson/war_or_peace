@@ -37,7 +37,7 @@ class Turn
     elsif type == :war
       @player1 unless @player2.deck.rank_of_card_at(2) >
       @player1.deck.rank_of_card_at(2)
-    elsif type == :mutually_assured_destruction
+    else
       "No Winner"
     end
   end
