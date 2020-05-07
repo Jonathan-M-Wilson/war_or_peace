@@ -26,7 +26,7 @@ class PlayerTest < Minitest::Test
   end
 
   def test_it_has_a_deck
-    assert  true, @player.deck
+    assert_equal @deck, @player.deck
   end
 
   def test_it_can_lose

@@ -34,7 +34,7 @@ class TurnMADTest < Minitest::Test
     end
 
     def test_spoils_of_war_holds_cards
-      assert [], @turn.spoils_of_war
+      assert_equal [], @turn.spoils_of_war
     end
 
     def test_type_of_turn
