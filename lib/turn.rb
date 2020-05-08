@@ -59,5 +59,3 @@ class Turn
     end
   end
 end
-
-#Add Comments
