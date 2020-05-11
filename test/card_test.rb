@@ -1,7 +1,10 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
-require "pry"
+require './lib/deck'
+require './lib/player'
+require './lib/turn'
+
 
 class CardTest < Minitest::Test
   def test_it_exists

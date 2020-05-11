@@ -2,7 +2,9 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/card'
 require './lib/deck'
-require "pry"
+require './lib/player'
+require './lib/turn'
+
 
 class DeckTest < Minitest::Test
 
